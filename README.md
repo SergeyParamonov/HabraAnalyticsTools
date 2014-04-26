@@ -41,31 +41,31 @@ src/parseHubs.py -- собирает данные по именам хабов, 
 data/ папка хранит данные 
 
 о пользователях хабов data/hubs, 
-читателях компаний data/companies
+читателях компаний data/companies 
 
-служебные данные data/meta: различные вспомогательные данные, список хабов и их полных имен, логи 
-data/meta/parsing_log  -- лог скачивания данных
-data/meta/hubs_name_link.csv  -- список хабов и их описаний
-data/meta/companies_name_link.csv -- список компаний и их описаний
+служебные данные data/meta: различные вспомогательные данные, список хабов и их полных имен, логи   
+data/meta/parsing_log  -- лог скачивания данных  
+data/meta/hubs_name_link.csv  -- список хабов и их описаний  
+data/meta/companies_name_link.csv -- список компаний и их описаний  
 
-usage: venn.py [-h] [--hubs] [--draw hubname [hubname ...]] [--stats]
-[--onlystats hubname [hubname ...]] [--removehubdata hubname]
-[--removehublink hubname] [--addhublink hubname]
-[--updatehub hubname] [--silentheader]
-[--downloadcompany company_name]
+usage: venn.py [-h] [--hubs] [--draw hubname [hubname ...]] [--stats]  
+[--onlystats hubname [hubname ...]] [--removehubdata hubname]  
+[--removehublink hubname] [--addhublink hubname]  
+[--updatehub hubname] [--silentheader]  
+[--downloadcompany company_name]  
 
-optional arguments:
--h, --help            show this help message and exit
---hubs                Print the list of available hubs from habrahabr
---onlystats hubname [hubname ...], -o hubname [hubname ...] Print statistics (at least 2 hubs must be given) and exit
---removehubdata hubname Remove the data for the selected hub
---removehublink hubname Remove the link for the selected hub
---addhublink hubname  Add a link for a hub
---updatehub hubname   Update user list of a hub
---silentheader, -s    Do not show the header about pizza and kittens
---downloadcompany company_name, -c company_name Download the data given company name e.g. yandex
+optional arguments:  
+-h, --help            show this help message and exit  
+--hubs                Print the list of available hubs from habrahabr  
+--onlystats hubname [hubname ...], -o hubname [hubname ...] Print statistics (at least 2 hubs must be given) and exit  
+--removehubdata hubname Remove the data for the selected hub  
+--removehublink hubname Remove the link for the selected hub  
+--addhublink hubname  Add a link for a hub  
+--updatehub hubname   Update user list of a hub  
+--silentheader, -s    Do not show the header about pizza and kittens  
+--downloadcompany company_name, -c company_name Download the data given company name e.g. yandex  
 
-drawing commands:
---draw hubname [hubname ...], -d hubname [hubname ...]
-Make Venn diagram for the 1st and 2nd hubs (must be given) and optinally the 3rd
---stats               Must be used with --draw, print statistics about hubs intersection
+drawing commands:  
+--draw hubname [hubname ...], -d hubname [hubname ...]  
+Make Venn diagram for the 1st and 2nd hubs (must be given) and optinally the 3rd  
+--stats               Must be used with --draw, print statistics about hubs intersection  
