@@ -14,13 +14,10 @@ from progress.bar import Bar
 import sys
 
 class HubAnalyzer:
-  logfile = "data/meta/parsing_log1.txt"
+  logfile = "data/meta/parsing_log.txt"
   hubnames = None
   report_downloading_progress = False
   enforce_download_in_presence_of_data = False
-  
-
-
 
   @staticmethod
   def getLastPageNumber(url):
@@ -44,7 +41,6 @@ class HubAnalyzer:
       nums = [int(num[-1]) for num in raw_nums]
       num = max(nums)
     return num
-
   
   @staticmethod
   def getCompanyLastPage(name):
@@ -124,7 +120,6 @@ class HubAnalyzer:
       bar.finish()
     datafile.close()
     log.close()
-
 
   @staticmethod
   def getUsers(hubname):
@@ -206,8 +201,6 @@ class HubAnalyzer:
       company = line.split(",")[1].strip()
       company_dict[company] = name
     return company_dict
-   
-  
 
   @staticmethod
   def hubname2link(hubname):
@@ -232,7 +225,6 @@ class HubAnalyzer:
     if HubAnalyzer.hubnames is None:
       HubAnalyzer.hubnames = HubAnalyzer.generate_hub_dictionary()   
     return HubAnalyzer.hubnames.keys()
-
 
   @staticmethod
   def get_company_names():
