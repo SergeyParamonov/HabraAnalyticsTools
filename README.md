@@ -2,8 +2,11 @@
 http://habrahabr.ru/post/221087/ -- hubs.py  
 http://habrahabr.ru/post/220465/ -- venn.py
 
-
 Примеры:
+
+help по тулам:  
+python venn.py -h  
+python hubs.py -h
 
 создание диаграммы
 python venn.py -d space programming fido  
