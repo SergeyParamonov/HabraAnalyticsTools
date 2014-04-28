@@ -1,3 +1,7 @@
+Статьи с описанием скриптов:  
+http://habrahabr.ru/post/221087/ -- hubs.py  
+http://habrahabr.ru/post/220465/ -- venn.py
+
 
 Примеры:
 
