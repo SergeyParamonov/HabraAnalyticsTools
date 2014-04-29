@@ -32,6 +32,9 @@ def compute(hubname,isCompany,fun_name):
   for hub_file in hubs:
     readers = Reader.read_list_of_users(hub_file)
     hub     = hub_file[tocut:]
+    #skip itself
+    if hub == hubname:
+      continue
     if fun_name == "similarity":
       similarity_dict[hub] = jaccard_index(hub_readers,readers)
     if fun_name == "inclusion":
@@ -40,16 +43,16 @@ def compute(hubname,isCompany,fun_name):
 
 
 def display_preferences(hubname,isCompany,fun_name,flag,flagopts):
-  values = compute(hubname,isCompany,fun_name)
   ylabel            = fun_name
+  values = compute(hubname,isCompany,fun_name)
   sorted_values = sorted(values.iteritems(), key=operator.itemgetter(1), reverse=True)
   hubs     = map(lambda x: x[0],sorted_values) 
   y_values = map(lambda x: x[1],sorted_values) 
   if flag is None:
-    MAX_HUBS          = 50
+    MAX_HUBS  = 50
     #exclude itself
-    hubs     = hubs[1:MAX_HUBS+1]
-    y_values = y_values[1:MAX_HUBS+1]
+    hubs     = hubs[:MAX_HUBS]
+    y_values = y_values[:MAX_HUBS]
     fig      = pl.figure()
     ax       = pl.subplot(111)
     hub_range = range(0,MAX_HUBS)
@@ -62,14 +65,14 @@ def display_preferences(hubname,isCompany,fun_name,flag,flagopts):
     pl.show()
   elif flag == "max":
     max_hubs = int(flagopts)
-    hubs     = hubs[1:max_hubs+1]
-    y_values = y_values[1:max_hubs+1]
+    hubs     = hubs[:max_hubs+1]
+    y_values = y_values[:max_hubs+1]
     for hub, value in zip(hubs, y_values):
       print("hub:"+hub + " function:" + fun_name + " value:" + str(value))
   elif flag == "min":
     min_hubs = int(flagopts)
     inverse_sorted_values = sorted(values.iteritems(), key=operator.itemgetter(1))
-    hubs     = map(lambda x: x[0],inverse_sorted_values)[0:min_hubs]
-    y_values = map(lambda x: x[1],inverse_sorted_values)[0:min_hubs]
+    hubs     = map(lambda x: x[0],inverse_sorted_values)[:min_hubs]
+    y_values = map(lambda x: x[1],inverse_sorted_values)[:min_hubs]
     for hub, value in zip(hubs, y_values):
       print("hub:"+hub + " function:" + fun_name + " value:" + str(value))
